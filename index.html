@@ -5,7 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Odin Library</title>
     <link rel="stylesheet" href="css/style.css">
-    <script src="js/script.js"></script>
+    <script src="js/script.js" defer></script>
 </head>
 <body>
     <div id="header">
@@ -14,58 +14,38 @@
     <div id="main-container">
         <div id="new-book-container">
             <p id="new-book-text">Add a new book</p>
+            <dialog>
+                <form action="" method="post">
+                    <div id="form-title">
+                        <label for="title">Title:</label>
+                        <input type="text" id="title" name="title">
+                    </div>
+                    <div id="form-author">
+                        <label for="author">Author</label>
+                        <input type="text" id="author" name="author">
+                    </div>
+                    <div id="form-page-count">
+                        <label for="page-count">Page Count:</label>
+                        <input type="number" id="page-count" name="page-count">
+                    </div>
+                    <div id="form-have-read">
+                        <fieldset>
+                            <legend>Have you read this book?</legend>
+                            <label for="yes">Yes</label>
+                            <input type="radio" id="yes" name="have-read" value="true">
+                            <label for="no">No</label>
+                            <input type="radio" id="no" name="have-read" value="false">
+                        </fieldset>
+                    </div>
+                    <div id="form-buttons">
+                        <button type="button" id="submit-book">Submit</button>
+                        <button id="cancel">Cancel</button>
+                    </div>
+                </form>
+            </dialog>
             <button id="new-book-button">Add</button>
         </div>
-        <div id="card-container">
-            <div class="card">
-                <div class="card-title">The Hobbit</div>
-                <div class="card-author">J.R.R. Tolkien</div>
-                <div class="card-page-count">295 Pages</div>
-                <div class="card-have-read">Yes</div>
-            </div>
-            <div class="card">
-                <div class="card-title">The Hobbit</div>
-                <div class="card-author">J.R.R. Tolkien</div>
-                <div class="card-page-count">295 Pages</div>
-                <div class="card-have-read">Yes</div>
-            </div>
-            <div class="card">
-                <div class="card-title">The Hobbit</div>
-                <div class="card-author">J.R.R. Tolkien</div>
-                <div class="card-page-count">295 Pages</div>
-                <div class="card-have-read">Yes</div>
-            </div>
-            <div class="card">
-                <div class="card-title">The Hobbit</div>
-                <div class="card-author">J.R.R. Tolkien</div>
-                <div class="card-page-count">295 Pages</div>
-                <div class="card-have-read">Yes</div>
-            </div>
-            <div class="card">
-                <div class="card-title">The Hobbit</div>
-                <div class="card-author">J.R.R. Tolkien</div>
-                <div class="card-page-count">295 Pages</div>
-                <div class="card-have-read">Yes</div>
-            </div>
-            <div class="card">
-                <div class="card-title">The Hobbit</div>
-                <div class="card-author">J.R.R. Tolkien</div>
-                <div class="card-page-count">295 Pages</div>
-                <div class="card-have-read">Yes</div>
-            </div>
-            <div class="card">
-                <div class="card-title">The Hobbit</div>
-                <div class="card-author">J.R.R. Tolkien</div>
-                <div class="card-page-count">295 Pages</div>
-                <div class="card-have-read">Yes</div>
-            </div>
-            <div class="card">
-                <div class="card-title">The Hobbit</div>
-                <div class="card-author">J.R.R. Tolkien</div>
-                <div class="card-page-count">295 Pages</div>
-                <div class="card-have-read">Yes</div>
-            </div>
-        </div>
+        <div id="card-container"></div>
     </div>
     <div id="footer">
         <p id="footer-text">Joshua Rutland</p>
