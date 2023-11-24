@@ -1,0 +1,132 @@
+:root {
+    --header-color: #435585;
+    --main-color: #363062;
+    --card-color: #f5e8c7;
+    --box-shadow-color: black;
+    --light-font-color: #f5e8c7;
+    --dark-font-color: black;
+    --main-font-family: Arial, Helvetica, sans-serif;
+}
+
+* {
+    padding: 0;
+    margin: 0;
+    font-family: var(--main-font-family);
+    color: var(--light-font-color);
+}
+
+body {
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    background-color: var(--main-color);
+}
+
+#header {
+    width: 100%;
+    height: 15%;
+    background-color: var(--header-color);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: sticky;
+    top: 0;
+    z-index: 1;
+}
+
+#main-container {
+    display: flex;
+    flex-direction: column;
+    flex: 1;
+    margin-bottom: 25%;
+}
+
+#new-book-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 2rem;
+    margin: 1rem 0;
+    padding: 1rem;
+    border-bottom: 2px solid #435585;
+}
+
+#new-book-button {
+  background: var(--header-color);
+  border-radius: 999px;
+  box-sizing: border-box;
+  cursor: pointer;
+  font-size: 1rem;
+  font-weight: 700;
+  opacity: 1;
+  outline: 0 solid transparent;
+  padding: 8px 18px;
+  user-select: none;
+  -webkit-user-select: none;
+  touch-action: manipulation;
+  width: fit-content;
+  word-break: break-word;
+  border: 0;
+}
+
+#card-container {
+    width: 100%;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    grid-template-rows: auto;
+    justify-content: space-evenly;
+    justify-items: center;
+    align-content: space-evenly;
+    align-items: center;
+    row-gap: 2rem;
+}
+
+.card {
+    background-color: var(--card-color);
+    border: none;
+    border-radius: .6rem;
+    box-shadow: -.05rem .05rem 0 .05rem var(--box-shadow-color);
+    width: 45vw;
+    height: 40vw;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 1rem;
+    padding: .5rem 0;
+}
+
+.card-title {
+    color: var(--dark-font-color);
+    font-size: 1.3rem;
+    font-weight: 700;
+}
+
+.card-author {
+    color: var(--dark-font-color);
+}
+
+.card-page-count {
+    color: var(--dark-font-color);
+}
+
+.card-have-read {
+    color: var(--dark-font-color);
+}
+
+#footer {
+    position: fixed;
+    bottom: 0;
+    height: 10%;
+    width: 100%;
+    background-color: var(--header-color);
+    display: flex;
+    flex-direction: column;
+    align-items: flex-end;
+    justify-content: flex-end;
+    gap: .5rem;
+}
+
+a, #footer-text {
+    color: var(--light-font-color);
+    margin-right: 1rem;
+}
