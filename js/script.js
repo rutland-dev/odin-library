@@ -44,12 +44,14 @@ myBooks = [
 ]
 
 populateCards = () => {
+    let newBookId = 0;
     cardContainer = document.querySelector('#card-container');
     while (cardContainer.hasChildNodes()) {
         cardContainer.removeChild(cardContainer.firstChild);
     }
     myBooks.forEach(book => {
-        
+        newBookId = newBookId + 1;
+        book.bookId = newBookId;
         newCard = document.createElement('div');
         newCard.classList.add('card');
         cardContainer.appendChild(newCard);
@@ -67,21 +69,44 @@ populateCards = () => {
         newCard.appendChild(cardPageCount);
         cardHaveRead = document.createElement('d');
         cardHaveRead.classList.add('card-have-read');
+        readButton = document.createElement('button');
+        readButton.classList.add('read-status');
+        readButton.addEventListener("click", readStatus = () => {
+            if (myBooks[(book.bookId -1)].haveRead === true) {
+                myBooks[(book.bookId -1)].haveRead = false;
+            } else {
+                myBooks[(book.bookId -1)].haveRead = true;
+            }
+            populateCards();
+        })
         if (book.haveRead === true) {
-            cardHaveRead.textContent = 'Yes';
+            cardHaveRead.textContent = 'Read';
+            readButton.textContent = 'Change to unread'
         } else {
-            cardHaveRead.textContent = 'No';
+            cardHaveRead.textContent = 'Unread';
+            readButton.textContent = 'Change to read'
         }
         newCard.appendChild(cardHaveRead);
+        newCard.appendChild(readButton);
+        removeBook = document.createElement('button');
+        removeBook.classList.add('remove-button');
+        removeBook.textContent = "Remove Book";
+        removeBook.addEventListener("click", removeBookFunction = () => {
+            myBooks.splice(book.bookId - 1, 1);
+            populateCards();
+        });
+        newCard.appendChild(removeBook);
+
     });
 }
 
 class Book {
-    constructor(title, author, pageCount, haveRead) {
+    constructor(title, author, pageCount, haveRead, bookId) {
         this.title = title,
         this.author = author,
         this.pageCount = pageCount,
-        this.haveRead = haveRead
+        this.haveRead = haveRead,
+        this.bookId = bookId
     }
 }
 
@@ -103,11 +128,13 @@ function getBook() {
 }
 
 function addBook(varTitle, title, author, pageCount, haveRead) {
-    varTitle = new Book(title, author, pageCount, haveRead);
+    varTitle = new Book(title, author, pageCount, haveRead, 0);
     myBooks.push(varTitle);
     dialog.close();
     populateCards();
 }
+
+
 
 const dialog = document.querySelector("dialog");
 const showButton = document.querySelector("dialog + button");
